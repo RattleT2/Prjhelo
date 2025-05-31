@@ -8,7 +8,7 @@ int main() {
     int jumlah_nama = sizeof(nama_list) / sizeof(nama_list[0]); 
     
     for (int i = 0; i < jumlah_nama; i++) {
-        cout << nama_list[i] << std::endl;
+        cout << nama_list[i] << endl;
     }
     return 0;
 }
