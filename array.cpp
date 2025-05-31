@@ -4,11 +4,11 @@ using namespace std;
 
 int main() {
     
-    std::string nama_list[] = {"Bayu", "Argus", "Santos", "Silver"};
+    string nama_list[] = {"Bayu", "Argus", "Santos", "Silver"};
     int jumlah_nama = sizeof(nama_list) / sizeof(nama_list[0]); 
     
     for (int i = 0; i < jumlah_nama; i++) {
-        std::cout << nama_list[i] << std::endl;
+        cout << nama_list[i] << std::endl;
     }
     return 0;
 }
