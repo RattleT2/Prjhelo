@@ -4,18 +4,17 @@
 #include <limits>    // Untuk numeric_limits (membersihkan buffer input)
 #include <iomanip>   // Untuk setprecision, fixed (format output angka)
 
-// Menggunakan namespace std secara global.
-// Ini berarti Anda tidak perlu menulis 'std::' sebelum elemen seperti cout, cin, string, vector, dll.
+
 using namespace std; 
 
-// --- Struktur Data untuk Produk ---
+
 struct Produk {
     string nama;
     double harga;
     int kuantitas;
 };
 
-// --- Fungsi untuk Menambahkan Produk ke Keranjang ---
+
 void tambahProduk(vector<Produk>& keranjang) {
     Produk produkBaru;
     cout << "\n--- Tambah Produk Baru ---" << endl;
@@ -42,7 +41,7 @@ void tambahProduk(vector<Produk>& keranjang) {
     cout << "Produk '" << produkBaru.nama << "' berhasil ditambahkan ke keranjang!\n" << endl;
 }
 
-// --- Fungsi untuk Menampilkan Isi Keranjang ---
+
 void tampilkanKeranjang(const vector<Produk>& keranjang) {
     if (keranjang.empty()) {
         cout << "\nKeranjang belanja kosong.\n" << endl;
@@ -75,30 +74,29 @@ void tampilkanKeranjang(const vector<Produk>& keranjang) {
     cout << endl;
 }
 
-// --- Fungsi untuk Menghapus Produk dari Keranjang ---
+
 void hapusProduk(vector<Produk>& keranjang) {
     if (keranjang.empty()) {
         cout << "\nKeranjang belanja kosong, tidak ada yang bisa dihapus.\n" << endl;
         return;
     }
 
-    tampilkanKeranjang(keranjang); // Tampilkan keranjang agar pengguna bisa melihat nomor produk
+    tampilkanKeranjang(keranjang); 
 
     int nomorProduk;
     cout << "Masukkan nomor produk yang ingin dihapus (1-" << keranjang.size() << "): ";
     while (!(cin >> nomorProduk) || nomorProduk < 1 || nomorProduk > keranjang.size()) {
         cout << "Nomor produk tidak valid. Masukkan angka antara 1 dan " << keranjang.size() << ": ";
-        cin.clear(); // Hapus flag error
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Membersihkan buffer
+        cin.clear(); 
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     }
 
-    // Hapus produk dari vector menggunakan iterator
-    // Ingat: vector di C++ berbasis 0, jadi nomor_produk - 1
+  
     cout << "Produk '" << keranjang[nomorProduk - 1].nama << "' berhasil dihapus dari keranjang.\n" << endl;
     keranjang.erase(keranjang.begin() + (nomorProduk - 1));
 }
 
-// --- Fungsi Utama (Main Program) ---
+
 int main() {
     vector<Produk> keranjangBelanja; // Deklarasi vector untuk menyimpan produk di keranjang
     int pilihan;
@@ -111,11 +109,11 @@ int main() {
         cout << "4. Keluar" << endl;
         cout << "Masukkan pilihan Anda: ";
 
-        // Validasi input pilihan menu
+       
         while (!(cin >> pilihan) || pilihan < 1 || pilihan > 4) {
             cout << "Pilihan tidak valid. Masukkan angka antara 1-4: ";
-            cin.clear(); // Hapus flag error
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Membersihkan buffer
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
 
         switch (pilihan) {
@@ -132,7 +130,7 @@ int main() {
                 cout << "Terima kasih telah menggunakan program keranjang belanja!\n" << endl;
                 break;
             default:
-                // Seharusnya tidak tercapai karena validasi input
+              
                 cout << "Pilihan tidak dikenal." << endl;
                 break;
         }
